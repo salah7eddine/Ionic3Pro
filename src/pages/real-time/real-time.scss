@@ -1,0 +1,113 @@
+page-real-time {
+
+}
+
+.map{
+  height: 100%;
+}
+
+.ionCol{
+  padding:0px;
+}
+
+.ionGridFirst{
+  width: 100%; height: 4.8rem;
+  background-color: white;
+  opacity: 0.7;
+  padding-top:0px;
+  margin: 0px;
+}
+
+.controle{
+  line-height: 40px;
+}
+
+.ionGridSecond{
+  width: 100%; height: 4.8rem;
+  background-color: white;
+  opacity: 0.9;
+  padding:0px;
+  margin: 0px;
+}
+.backgrdAvatar{
+  background-color: white;
+  width: 100px;
+  height: 50px;
+
+}
+
+.ionFabGS{
+  margin:-10px;
+}
+
+.SecondRowCol{
+  padding: 0;
+}
+
+.BGS{
+  padding-bottom:5px; margin-top:0px;
+  margin: 5px !important;
+  margin-left: 15px !important;
+  //background-color:rgb(157, 158, 235);
+  padding: 20px;
+}
+
+.buttonIonFab{
+  margin-top:0px;
+  margin-right: -5px !important;
+  background-color:rgb(157, 158, 235);
+}
+
+ion-fab[top][edge] {
+  top: -12px;
+  margin-right: -15px;
+}
+
+// .fab[mini]{
+//   margin: 4px;
+//   width: 40px;
+//   height: 40px;
+//   line-height:  40px;
+// }
+
+.buttonCall{
+  background-color:rgb(70, 238, 14);
+  padding-bottom:5px; margin-top:0px;
+  margin: 5px !important;
+  margin-left: 3px !important;
+  padding: 20px;
+}
+
+
+
+.toast{
+  text-align:center;
+}
+
+.alert-title {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.alert-md .alert-checkbox-label {
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: white;
+  padding: 13px 26px;
+}
+
+.hide {
+  display: none;
+}
+  
+.button-small-md {
+    height:2em;
+    font-size: 15px;
+    padding: 21px;
+}

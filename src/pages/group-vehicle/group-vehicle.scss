@@ -1,0 +1,33 @@
+page-group-vehicle {
+    background-color: gray;
+}
+
+ .accordion-list {
+        //background: color($colors, );
+        height: 100%;
+    }
+    .section {
+        background: #fff;
+        color: #000;
+       
+    }
+    .section-active {
+        background: rgb(228, 83, 83);
+        color: #fff;
+    }
+ 
+    .child {
+        background: #e8e7e6;
+        color: #000;
+        margin-bottom: 0px;
+    }
+    .child-item {
+        background: #f3f2f1;
+        padding: 10px;
+    }
+    .label {
+        margin: 0px;
+    }
+    .list {
+        margin-bottom: 4px;
+    }

@@ -1,0 +1,46 @@
+<ion-header>
+
+    <ion-toolbar color="danger">
+      <ion-buttons left>
+          <button ion-button (click)="goBack()" >
+            <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-title text-center >Historique Vehicule</ion-title>
+      
+    </ion-toolbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+
+      <ion-list>
+        <ion-item class="Hist">
+          <ion-label color="dark">Historique : <ion-icon name="arrow-round-down"></ion-icon></ion-label>
+          <ion-select [(ngModel)]="history">
+            <ion-option value="trajets" checked>Liste des trajets</ion-option>
+            <ion-option value="arrets">Listes des arrets</ion-option>
+            <ion-option value="km">Liste de kilométrage</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+
+      <ion-list>
+          <ion-item class="datedebut">
+            <ion-label color="dark">Date début</ion-label>
+            <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="dateDebut"></ion-datetime>
+          </ion-item>
+          <ion-item class="datefin">
+            <ion-label color="dark">Date fin</ion-label>
+            <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="datefin"></ion-datetime>
+          </ion-item>
+      </ion-list>
+
+      <ion-buttons class="btn">
+        <button ion-button (click)="cancel()" round>ANNULER</button> 
+        <button ion-button (click)="onSearch()" round>CHERCHER</button> 
+      </ion-buttons>
+  
+  </ion-content>
+  

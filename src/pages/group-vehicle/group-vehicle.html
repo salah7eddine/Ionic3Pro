@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>GroupVehicle</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()" >Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list class="accordion-list">
+    <!-- Name of group -->
+    <ion-list-header  *ngFor="let g of group?.content" no-lines no-padding>
+  
+      <button ion-item (click)="toggleSection(g)" detail-none [ngClass]="{'section-active': g.open,'section':!g.open}">
+        <ion-icon item-left name="ios-arrow-forward" *ngIf="!g.open"></ion-icon>
+        <ion-icon item-left name="ios-arrow-down" *ngIf="g.open"></ion-icon>
+        {{g.groupName}}
+      </button>
+
+      <!-- Name of vehicule -->
+      <ion-list *ngIf="g.vehicules && g.open" no-lines > 
+         <!--*ngIf=""-->
+        
+          <ion-item *ngFor="let v of g.vehicules" no-padding class="child" detail-none>
+              <ion-label>ID : {{ v.idVehicule }} , Matricule : {{ v.matricule }}</ion-label>
+              <ion-checkbox  (ionChange)="selectVehicule(v)" [checked]="v.status"></ion-checkbox>
+              <!--  -->
+              <!-- checked="filterIdV(v.idVehicule)" disabled="filterIdV(v.idVehicule)" -->
+              <!-- [disabled]="v.idVehicule == 19" [checked]="v.idVehicule == 19" -->
+          </ion-item>
+      </ion-list>
+
+      </ion-list-header>
+
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
+      <button ion-button block color="danger" (click)="onSelectVehicules()">Ok</button>
+  </ion-list> 
+
+
+</ion-content>

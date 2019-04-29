@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar color="danger">
+      <ion-title text-center>Bienvenue</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+
+    <!-- Logo -->
+    <div  text-center class="animated fadeInDown">
+        <h2 ion-text class="loginTxt text-danger" no-margin>
+            <strong>Rim</strong> Telecom
+          </h2>
+      <!-- <div class="logo"></div>   -->
+      
+    </div>
+
+    <!-- Login form -->
+    <form class="list-form" padding-horizontal #f="ngForm">
+      <ion-item>
+        <ion-label floating class="text-danger"><strong> Identifiant</strong> </ion-label>
+        <ion-input type="text" name="username" [(ngModel)]="user.username" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating class="text-danger"><strong> Mot de passe</strong></ion-label>
+        <ion-input type="password"  name="password" [(ngModel)]="user.password" ></ion-input>
+      </ion-item> 
+      <div padding>
+          <button ion-button  icon-start block round color="danger" type="submit" [disabled]="!f.valid" tappable (click)="login(f.value)">
+            <ion-icon name="log-in"></ion-icon>SE CONNECTER
+          </button>
+      </div>
+    </form>
+
+   
+
+    <div class="text-danger text-center" *ngIf="mode==1">
+      <strong>error</strong>
+    </div>
+
+
+    
+  </div>
+</ion-content>
+
+

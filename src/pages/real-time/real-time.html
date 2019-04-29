@@ -1,0 +1,126 @@
+<ion-header>
+    <ion-toolbar color="danger">
+      <button ion-button menuToggle color="light">
+       <ion-icon name="menu"></ion-icon>
+      </button>   
+      <ion-title text-left  class="">Temps Réel</ion-title>
+  
+    </ion-toolbar>
+    
+  </ion-header>
+  
+  <ion-content>
+    
+          <ion-fab  top right mini edge>
+                  <!-- tooltip="Tout | choix" positionH="left" [arrow]="showArrow" [event]="tooltipEvent" [duration]="duration" -->
+                <button ion-fab mini color="light" class="btn-fab"><ion-icon name="add" ></ion-icon></button>
+                <ion-fab-list>
+                        
+                        <!--All-->
+                        <!-- Note: 'hover' only works on desktop. -->
+                        <button ion-fab menuClose class="btn-fab" (click)="onAll()">
+                                <!-- tooltip="Tout" positionH="left" event="hover" arrow  -->
+                                <ion-icon ios="ios-done-all" md="md-done-all"></ion-icon>
+                        </button>
+
+                        <!--Select-->
+                        <button ion-fab menuClose class="btn-fab" (click)="onSelect()">
+                                <!--  tooltip="Select" positionH="left" event="hover"  -->
+                                <!--loadGroup()-->
+                                <ion-icon ios="ios-locate" md="md-locate"></ion-icon>
+                        </button>
+                </ion-fab-list>
+        </ion-fab>
+  
+          <div id="map" class="map" (click)="presentToast()"></div>
+    
+  </ion-content>
+  
+  <ion-footer [class.hide]="!checkStatus">
+      <ion-grid style="padding: 0px;">
+       <ion-row  class="ionGridSecond" [class.hide]="!checkStatusSecond">
+          <ion-col col-2 class="SecondRowCol" style="padding: 0;">
+                <ion-item class="backgrdAvatar">
+                        <ion-avatar item-start *ngIf=infoV.haveAvatar>
+                                <img src="http://79.137.75.178//files/14/drivers/105/avatar.png">
+                        </ion-avatar>
+                        <ion-avatar item-start *ngIf=!infoV.haveAvatar>
+                                <img src="../../assets/img/icon.png"/>
+                        </ion-avatar>
+                </ion-item>
+                  
+          </ion-col>
+          <ion-col col-8 style="padding: 0px;">
+                <ion-label text-center style="margin: 0;">
+                  {{infoV.lastName}}<br>{{infoV.realTimeRecordStatus}}<br>
+                </ion-label>
+          </ion-col>
+          <ion-col col-2 style="padding: 0px;">
+                  <button [disabled]="infoV.telephone==null" (click)="onCall(infoV)"
+                   color="primary" ion-fab mini outline round strong class="buttonCall fab fab-md fab-md-primary" ng-reflect-color="primary">
+                   <ion-icon class="fab-close-icon icon icon-md ion-md-close" name="call" role="img" aria-label="close" ng-reflect-name="close"></ion-icon>
+                   <span class="button-inner">
+                  
+                          <ion-icon name="call" role="img" class="icon icon-md ion-md-call" aria-label="call" ng-reflect-name="call"></ion-icon>
+                    
+                        </span><div class="button-effect"></div></button>
+                    
+          </ion-col>
+       </ion-row>
+       <ion-row style="margin-top: 1px;" class="ionGridFirst" [class.hide]="!checkStatus" >
+              <ion-col class="ionCol">
+                      
+
+
+                          <ion-fab class="controle">
+                                <button  ion-fab mini outline round strong style="background-color:crimson" class="BGS fab fab-md fab-md-primary" ng-reflect-color="primary">
+                                        <ion-icon class="fab-close-icon icon icon-md ion-md-close" name="close" role="img" aria-label="close" ng-reflect-name="close"></ion-icon>
+                                        <span class="button-inner">
+                                
+                                            <ion-icon ios="ios-power" md="md-power" role="img" class="icon icon-md ion-md-power" aria-label="power" ng-reflect-ios="ios-power" ng-reflect-md="md-power" ></ion-icon>
+                                
+                                    </span><div class="button-effect"></div></button>
+                                <ion-fab-list side="top">
+                                        <button ion-fab color="danger"><ion-icon name="square"></ion-icon></button>
+                                        <button ion-fab color="success"><ion-icon name="play"></ion-icon></button>
+                                </ion-fab-list>
+                              </ion-fab>
+              </ion-col>
+              <ion-col class="ionCol">
+                      <button ion-fab mini outline round strong style="background-color:darkturquoise" class="BGS fab fab-md fab-md-primary" ng-reflect-color="primary">
+                          <ion-icon class="fab-close-icon icon icon-md ion-md-close" name="close" role="img" aria-label="close" ng-reflect-name="close"></ion-icon>
+                      
+                          <ion-icon name="send"></ion-icon>
+  
+                          <div class="button-effect"></div></button>
+              </ion-col>
+              <ion-col class="ionCol">
+                      <button (click)="showHistory()" ion-fab mini outline round strong style="background-color:black" class="BGS fab fab-md fab-md-primary" ng-reflect-color="primary">
+                          <ion-icon class="fab-close-icon icon icon-md ion-md-close" name="close" role="img" aria-label="close" ng-reflect-name="close">
+                          </ion-icon>
+                          
+                          <ion-icon name="archive"></ion-icon>
+  
+                          <div class="button-effect"></div>
+                      </button>
+              </ion-col>
+              <ion-col class="ionCol">
+                      <button color="primary" (click)="infoVehicle()" ion-fab mini outline round strong style="background-color:gray" class="BGS fab fab-md fab-md-primary" ng-reflect-color="primary"><ion-icon class="fab-close-icon icon icon-md ion-md-close" name="close" role="img" aria-label="close" ng-reflect-name="close"></ion-icon><span class="button-inner">
+                        
+                                  <ion-icon ios="ios-car" md="md-car" role="img" class="icon icon-md ion-md-car" aria-label="car" ng-reflect-ios="ios-car" ng-reflect-md="md-car"></ion-icon>
+                      
+                          </span><div class="button-effect"></div></button>
+              </ion-col>
+              <ion-col class="ionCol">
+                      <button color="primary"  (click)="onShowSecond()" ion-fab mini outline round strong class="BGS fab fab-md fab-md-primary" ng-reflect-color="primary"><ion-icon class="fab-close-icon icon icon-md ion-md-close" name="close" role="img" aria-label="close" ng-reflect-name="close"></ion-icon><span class="button-inner">
+                        
+                              véh
+                      
+                          </span><div class="button-effect"></div></button>
+              </ion-col>
+       </ion-row>
+  
+      </ion-grid> 
+    </ion-footer>
+    
+  

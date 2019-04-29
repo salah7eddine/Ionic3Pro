@@ -1,0 +1,21 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-navbar text-center color="danger">
+        <ion-title text-left  class="">{{nameUser}}, {{audience}}</ion-title>
+        <ion-title text-right  class="">{{Day}} / {{Month}} / {{FullYear}}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content class="img-side" >
+    
+      <ion-list color="primary" style="padding: 0px;">
+        <button style="margin: 10px; padding: 1px;background: none;" ion-item=""  menuClose="" *ngFor="let m of menus" (click)="openPage(m)" >
+          {{m.title}}
+        </button>
+        <button ion-item="" bottom large  color="danger"  menuClose text-center tappable (click)="logout()">
+            <ion-icon name="log-out"> déconnecter</ion-icon>
+          </button>
+      </ion-list>
+       
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content ></ion-nav> 
